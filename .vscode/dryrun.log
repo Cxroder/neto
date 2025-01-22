@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/atang28/neto'
+clang -o bin/server src/srv.c
+clang -o bin/client src/cli.c
+make: Leaving directory '/home/atang28/neto'
+ 

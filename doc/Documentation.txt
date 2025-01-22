@@ -1,0 +1,44 @@
+# UDP File Transfer
+
+This project consists of a simple client-server application for transferring files over UDP.
+
+The project contains two main components:
+
+1. cli.c
+2. srv.c
+
+These files are used as a client and server respectively for the local machine.
+Client sends inputted files to the server, which is saved to a given out path.
+
+The client program uses sliding window paired with go back n.
+The client sends a multiple section (following mtu) of the file (fitting the inputted window),
+and wait for an acknowledgement from the server before adjusting the window or resending packets.
+This will continue to loop until the entire file has been sent or no response from the server is heard within its time limits.
+There is a 60 second timer for the first response from the server before declaring it unavailable.
+Ordering is done with a buffer that stores out of order packets.
+
+Files should be in the same directory as the applications.
+Server somewhat struggles with intensive and multiple clients' files
+
+Client needs ip, port, mtu, window_size, in_path, and out_path
+Server needs port and drop_percentage
+
+## Example Startup
+
+./server 12345 5
+./client 127.0.0.1 12345 1024 512 input.txt output.txt
+
+## Expected Input:
+./server <port> <droppc>
+./client <ip> <port> <mtu> <winsz> <in_path> <out_path>
+
+Successfully tested:
+* Small text file (600 bytes)
+dd if=/dev/urandom of=med.bin bs=1M count=10
+dd if=/dev/urandom of=test.bin bs=100 count=1
+dd if=/dev/zero of=empty.txt bs=1 count=0
+dd if=/dev/urandom of=min.bin bs=5M count=1
+* 25 droppc
+
+
+Due to limitations on the creator's equipment, large files that are ranging to GB range could not be tested properly.

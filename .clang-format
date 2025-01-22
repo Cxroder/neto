@@ -1,0 +1,19 @@
+BasedOnStyle: WebKit
+IndentWidth: 4
+AlignEscapedNewlines: Right
+AlignOperands: true
+AllowShortBlocksOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: false
+ColumnLimit: 100
+IndentCaseLabels: false
+IndentWrappedFunctionNames: true
+PointerAlignment: Right
+ReflowComments: false
+SortIncludes: false
+SpaceAfterCStyleCast: true
+SpaceBeforeAssignmentOperators: true
+SpaceAfterControlStatementKeyword: true
+BreakBeforeBraces: Attach
+---

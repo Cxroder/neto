@@ -1,0 +1,6 @@
+1 one 2 two
+heyoooo
+The client must not send packets with payload data larger than mtu bytes.
+The server must write the final re-assembled file as communicated by the client from its com-
+mand argument out file path.
+My best guess is that the server's ACK and the client's packet are one-to-one paired. Say when the client is working on SN 10000, and the window size is 10, it should be sending SN from 10000 to 10009, and the server shall send 10 ACKs. If the client finds out that it didn't receive an ACK for SN10005, it will start a new window with SN from 10005 to 10014. Can anyone verify this? 
