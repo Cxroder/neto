@@ -31,3 +31,6 @@ whisper(sender, recipient, message): Sends private messages to specific clients.
 Server Initialization:
 
 main(): Starts the server, assigns a dynamic port, and runs the event loop.
+
+# To Do
+Create a new dictionary file for various commands and communication types
