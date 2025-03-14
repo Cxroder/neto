@@ -31,6 +31,10 @@ async def handle_client(reader, writer):
     print(f"New connection from {addr}")
     clients[addr] = writer
 
+    nameData = await reader.read(100)
+    name = nameData.decode().strip()
+    broadcast(f"{name} has joined the chat.")  # USERNAME UPDATE NEXT STEP
+
     try:
         while True:
             data = await reader.read(100)
@@ -62,8 +66,8 @@ async def handle_client(reader, writer):
         await writer.wait_closed()
 
 async def broadcast(message):
-    print(f"Broadcasting: {message}")
-    print(f"Active clients: {list(clients.keys())}")
+    print(f"| Broadcasting: {message}")
+    print(f"| Active clients: {list(clients.keys())}\n")
 
     async with clients_lock: # Lock client list during broadcast
         for addr, writer in clients.items():
@@ -78,7 +82,7 @@ async def broadcast(message):
                 await writer.wait_closed()
                 del clients[addr]
 
-async def whisper(sender, recipient, message): # USERNAME UPDATE NEXT STEP
+async def whisper(sender, recipient, message):
     print(f"Whispering: {sender} to {recipient}: {message}")
     for addr, writer in clients.items():
         try:
@@ -88,9 +92,11 @@ async def whisper(sender, recipient, message): # USERNAME UPDATE NEXT STEP
                 break
             else:
                 pass
-                #send to sender that recipient is not found
         except Exception as e:
             pass
+    else:
+        clients[sender].write(f"Recipient {recipient} not found.".encode() + b'\n')
+        await clients[sender].drain()
 
 async def main():
     server = await asyncio.start_server(handle_client, '127.0.0.1', 0)

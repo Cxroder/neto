@@ -32,7 +32,7 @@ async def send_messages(writer):
 async def main():
     addr = read_info()
     reader, writer = await asyncio.open_connection(addr[0], int(addr[1]))
-    name = input("Enter username\n> ", end='')
+    name = input("Enter username\n>>> ")
     writer.write(name.encode())
 
     listen_task = asyncio.create_task(listen_for_messages(reader))
