@@ -1,7 +1,14 @@
 import asyncio
 import signal
 
-clients = {}  # Dictionary to track client writers
+# Replace magic numbers (100 buffer) with variables here?
+
+clients = {}  # Dictionary to track client writers in format:
+# addr: {
+#         "username": username,
+#         "writer": writer
+#     }
+
 clients_lock = asyncio.Lock()  # Async lock object
 
 async def shutdown(signal, loop, server):
@@ -31,9 +38,11 @@ async def handle_client(reader, writer):
     print(f"New connection from {addr}")
     clients[addr] = writer
 
-    nameData = await reader.read(100)
+    nameData = await reader.read(100) # Assumes first message is the username
     name = nameData.decode().strip()
-    broadcast(f"{name} has joined the chat.")  # USERNAME UPDATE NEXT STEP
+    username = generate_unique_username(name, [clients['username'] for client in clients.values()])
+    clients[addr] = {"username": username, "writer": writer}
+    await broadcast(f"{name} has joined the chat.")  # USERNAME UPDATE NEXT STEP
 
     try:
         while True:

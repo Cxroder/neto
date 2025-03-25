@@ -32,5 +32,6 @@ Server Initialization:
 
 main(): Starts the server, assigns a dynamic port, and runs the event loop.
 
+Both sides have a 100 size buffer
 # To Do
 Create a new dictionary file for various commands and communication types

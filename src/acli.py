@@ -33,7 +33,8 @@ async def main():
     addr = read_info()
     reader, writer = await asyncio.open_connection(addr[0], int(addr[1]))
     name = input("Enter username\n>>> ")
-    writer.write(name.encode())
+    writer.write(name.encode()) # Send the username to the server
+    await writer.drain()
 
     listen_task = asyncio.create_task(listen_for_messages(reader))
     await send_messages(writer)

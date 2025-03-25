@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jan 16 19:58:47 2025
+# Make data base, printed on Sat Mar 15 18:38:56 2025
 
 # Variables
 
@@ -77,7 +77,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
-VSCODE_NLS_CONFIG = {"userLocale":"en","osLocale":"en","resolvedLanguage":"en","defaultMessagesFile":"/home/atang28/.vscode-server/bin/91fbdddc47bc9c09064bf7acf133d22631cbf083/out/nls.messages.json","locale":"en","availableLanguages":{}}
+VSCODE_NLS_CONFIG = {"userLocale":"en","osLocale":"en","resolvedLanguage":"en","defaultMessagesFile":"/home/atang28/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/out/nls.messages.json","locale":"en","availableLanguages":{}}
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # makefile
@@ -91,13 +91,11 @@ MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = /home/atang28/.vscode-server/bin/91fbdddc47bc9c09064bf7acf133d22631cbf083/bin/remote-cli:/home/atang28/.local/bin:/home/atang28/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/MATLAB/R2022a/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/HP/HP One Agent:/mnt/c/Users/cxrod/AppData/Local/Programs/Python/Python38-32/Scripts/:/mnt/c/Users/cxrod/AppData/Local/Programs/Python/Python38-32/:/mnt/c/Users/cxrod/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/cxrod/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/cxrod/.dotnet/tools:/mnt/c/Users/cxrod/AppData/Local/GitHubDesktop/bin:/snap/bin
+PATH = /home/atang28/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/bin/remote-cli:/home/atang28/.local/bin:/home/atang28/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/MATLAB/R2022a/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/HP/HP One Agent:/mnt/c/Users/cxrod/AppData/Local/Programs/Python/Python38-32/Scripts/:/mnt/c/Users/cxrod/AppData/Local/Programs/Python/Python38-32/:/mnt/c/Users/cxrod/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/cxrod/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/cxrod/.dotnet/tools:/mnt/c/Users/cxrod/AppData/Local/GitHubDesktop/bin:/snap/bin
 # environment
 NIX_SSL_CERT_FILE = /etc/ssl/certs/ca-certificates.crt
 # default
 MAKEFILES := 
-# environment
-MOTD_SHOWN = update-motd
 # automatic
 ^F = $(notdir $^)
 # environment
@@ -107,7 +105,7 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 NAME = Sky-High
 # environment
-VSCODE_SERVER_TAR = /mnt/c/Users/cxrod/vscode-remote-wsl/stable/91fbdddc47bc9c09064bf7acf133d22631cbf083/vscode-server-stable-linux-x64.tar.gz
+VSCODE_SERVER_TAR = /mnt/c/Users/cxrod/vscode-remote-wsl/stable/ddc367ed5c8936efe395cffeec279b04ffd7db78/vscode-server-stable-linux-x64.tar.gz
 # environment
 HOSTTYPE = x86_64
 # environment
@@ -115,7 +113,7 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 # automatic
 +F = $(notdir $+)
 # environment
-WSL_INTEROP = /run/WSL/14_interop
+WSL_INTEROP = /run/WSL/150_interop
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -133,13 +131,13 @@ MAKE_VERSION := 4.3
 # environment
 NIX_PROFILES = /nix/var/nix/profiles/default /home/atang28/.nix-profile
 # environment
-_ = /home/atang28/.vscode-server/bin/91fbdddc47bc9c09064bf7acf133d22631cbf083/node
+_ = /home/atang28/.vscode-server/bin/ddc367ed5c8936efe395cffeec279b04ffd7db78/node
 # environment
 XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
 # makefile (from 'Makefile', line 6)
 SRV_SRC = $(SRC_DIR)/srv.c
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-b4936b8e-7890-489b-af3f-317a5e614361.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-d4733320-1637-4ae7-b26a-2ad9c2438bde.sock
 # environment
 HOME = /home/atang28
 # makefile (from 'Makefile', line 4)
@@ -167,7 +165,7 @@ SRV_BIN = $(BIN_DIR)/server
 # environment
 VSCODE_ESM_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # variable set hash-table stats:
-# Load=78/1024=8%, Rehash=0, Collisions=3/124=2%
+# Load=77/1024=8%, Rehash=0, Collisions=3/123=2%
 
 # Pattern-specific Variable Values
 
@@ -175,15 +173,16 @@ VSCODE_ESM_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 
 # Directories
 
-# . (device 2080, inode 165935): 8 files, no impossibilities.
+# . (device 2080, inode 165935): 12 files, no impossibilities.
 
-# 8 files, no impossibilities in 1 directories.
+# 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
 # No implicit rules.
 
 # Files
+ 
 
 bin/server: src/srv.c
 #  Implicit rule search has not been done.
@@ -209,7 +208,6 @@ bin/server: src/srv.c
 # | := 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=2/14=14%
- 
 #  recipe to execute (from 'Makefile', line 17):
 	$(CC) -o $@ $<
 
@@ -283,12 +281,12 @@ all: bin/server bin/client
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 19 / storage = 158 B / avg = 8 B
-# current buf: size = 8162 B / used = 158 B / count = 19 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 23 / storage = 186 B / avg = 8 B
+# current buf: size = 8162 B / used = 186 B / count = 23 / avg = 8 B
 
-# strcache performance: lookups = 34 / hit rate = 44%
+# strcache performance: lookups = 38 / hit rate = 39%
 # hash-table stats:
-# Load=19/8192=0%, Rehash=0, Collisions=0/34=0%
-# Finished Make data base on Thu Jan 16 19:58:47 2025
+# Load=23/8192=0%, Rehash=0, Collisions=0/38=0%
+# Finished Make data base on Sat Mar 15 18:38:56 2025
 
  
