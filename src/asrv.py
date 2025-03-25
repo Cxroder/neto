@@ -2,7 +2,7 @@ import asyncio
 import signal
 
 # Replace magic numbers (100 buffer) with variables here?
-
+#
 clients = {}  # Dictionary to track client writers in format:
 # addr: {
 #         "username": username,
@@ -33,42 +33,65 @@ def generate_unique_username(username, existing_usernames):
         count += 1
     return username
 
+async def initialize_client(reader, writer): # Handle username and any other setup tasks here
+    try:
+        # Get the client's username
+        username = await reader.read(100)
+        username = username.decode().strip()
+
+        if not username: #!!! THIS should probably be handled by client
+            print("Client did not provide a username. Closing connection.")
+            return None
+        #? Use writer and loop for proper username?
+
+        # Ensure unique username
+        username = generate_unique_username(username, [c['username'] for c in clients.values()])
+        return username
+    except Exception as e:
+        print(f"Error during initialization: {e}")
+        return None
+
+
 async def handle_client(reader, writer):
     addr = writer.get_extra_info('peername')
     print(f"New connection from {addr}")
-    clients[addr] = writer
 
-    nameData = await reader.read(100) # Assumes first message is the username
-    name = nameData.decode().strip()
-    username = generate_unique_username(name, [clients['username'] for client in clients.values()])
-    clients[addr] = {"username": username, "writer": writer}
-    await broadcast(f"{name} has joined the chat.")  # USERNAME UPDATE NEXT STEP
+    name = await initialize_client(reader, writer)
+    if name is None:
+        writer.close()
+        await writer.wait_closed()
+        return
+
+    clients[addr] = {"username": name, "writer": writer}
+    print(f"Username '{name}' assigned to {addr}")
+    await broadcast(f"{name} has joined the chat!")
 
     try:
         while True:
             data = await reader.read(100)
 
             if not data:  # Client disconnected
-                print(f"Connection closed by {addr}")
+                print(f"Connection closed by {name}")
                 break
+
             message = data.decode().strip()
-            print(f"Received from {addr}: {message}")
+            print(f"Received from {name}: {message}")
 
             if message.startswith("/w"):
                 _, recipient, whisper_msg = message.split(' ', 2)
-                await whisper(addr, recipient, whisper_msg)
+                await whisper(name, recipient, whisper_msg)
             elif message.startswith("/quit"):
-                print(f"Connection closed by {addr} (quit)")
-                await broadcast(f"{addr} has left the chat.")
+                print(f"Connection closed by {name} (quit)")
+                await broadcast(f"{name} has left the chat.")
                 break
             else:
-                print(f"broadcast \"{message}\" from {addr}")
-                await broadcast(f"{addr}: {message}")
+                print(f"broadcast \"{message}\" from {name}")
+                await broadcast(f"{name}: {message}")
 
     except ConnectionResetError:
-        print(f"Connection reset by {addr}")
+        print(f"Connection reset by {name}")
     finally: # Cleanup
-        async with clients_lock:  # Safely remove the client
+        async with clients_lock:  # Safely remove the client without change during iteration
             if addr in clients:
                 del clients[addr]
         writer.close()
